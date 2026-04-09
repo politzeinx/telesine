@@ -2,7 +2,7 @@
  
 Site de catálogo de filmes inspirado no Letterboxd, desenvolvido com HTML e CSS puro.
  
-## 📸 Sobre o projeto
+##Sobre o projeto
  
 O Telesine é uma página web de catálogo de filmes com visual escuro e moderno. O projeto foi desenvolvido do zero usando apenas HTML e CSS, sem frameworks ou bibliotecas externas.
  
