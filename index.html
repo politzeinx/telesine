@@ -2,148 +2,137 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Telesine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Telesine — Catálogo de filmes com trailers, fotos, horários e conteúdo.">
+  <title>Telesine — Catálogo</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" type="image/png" href="favicon/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Poppins:wght@400;500;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Navegação principal">
     <div class="wrapper navbar-inner">
-
-      <div class="logo">
-        <span class="icon" style="background: #dd901d;">T</span>
-        <span class="icon" style="background: #09ca23;">E</span>
-        <span class="icon" style="background: #4aa6f1;">L</span>
-        <span class="icon" style="background: #8c0ee0;">E</span>
-        <span class="icon" style="background: #ec4d4d;">S</span>
-        ine
-      </div>
-
-      <ul class="menu">
-        <li>Home</li>
-        <li>Em Breve</li>
-        <li class="active">Catálogo</li>
-        <li>Parceiros</li>
+      <a class="logo" href="/" aria-label="Telesine — página inicial">
+        <span class="icon" style="--c:#dd901d">T</span><span class="icon" style="--c:#09ca23">E</span><span class="icon" style="--c:#4aa6f1">L</span><span class="icon" style="--c:#8c0ee0">E</span><span class="icon" style="--c:#ec4d4d">S</span>ine
+      </a>
+      <ul class="menu" role="list">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Em Breve</a></li>
+        <li><a href="#" class="active" aria-current="page">Catálogo</a></li>
+        <li><a href="#">Parceiros</a></li>
       </ul>
-
       <div class="nav-right">
         <div class="buttonlog">
-          <button class="buttonmain">+ LOG</button>
-          <button class="buttonarrow">▾</button>
+          <button class="buttonmain" type="button">+ LOG</button>
+          <button class="buttonarrow" type="button" aria-label="Mais opções">▾</button>
         </div>
-        <div class="search">
-          <svg viewBox="0 0 24 24" class="search-icon">
-            <circle cx="11" cy="11" r="7"></circle>
-            <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+        <button class="search" type="button" aria-label="Buscar filmes">
+          <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/>
           </svg>
-        </div>
+        </button>
       </div>
-
     </div>
   </nav>
 
-  <!-- TÍTULO -->
-  <header class="header">
+  <header class="page-header">
     <div class="wrapper">
-      <h1>Catálogo de filmes</h1>
+      <h1>Catálogo de Filmes</h1>
       <p>Trailer, fotos, horários e conteúdo de todos os filmes.</p>
     </div>
   </header>
 
-  <!-- FILMES NOVOS -->
-  <section class="secao">
-    <div class="wrapper">
-      <p class="secao-titulo">Filmes novos no Telesine</p>
-      <hr>
-      <div class="grid">
-        <div class="card">
-          <img src="img/filme1.jpg">
-          <h3>Devoradores De Estrelas</h3>
-        </div>
-        <div class="card">
-          <img src="img/filme2.jpg">
-          <h3>Pecadores</h3>
-        </div>
-        <div class="card">
-          <img src="img/filme3.jpg">
-          <h3>Marty Supreme</h3>
-        </div>
-        <div class="card">
-          <img src="img/filme4.jpg">
-          <h3>Hamnet</h3>
-        </div>
-        <div class="card">
-          <img src="img/filme5.jpg">
-          <h3>Uma Batalha Após A Outra</h3>
+  <main>
+
+    <section class="secao" aria-labelledby="titulo-novos">
+      <div class="wrapper">
+        <h2 class="secao-titulo" id="titulo-novos">Filmes novos no Telesine</h2>
+        <hr>
+        <ul class="grid" role="list">
+          <li class="card"><a href="#"><img src="img/filme1.jpg" alt="Pôster de Devoradores de Estrelas"><h3>Devoradores De Estrelas</h3></a></li>
+          <li class="card"><a href="#"><img src="img/filme2.jpg" alt="Pôster de Pecadores"><h3>Pecadores</h3></a></li>
+          <li class="card"><a href="#"><img src="img/filme3.jpg" alt="Pôster de Marty Supreme"><h3>Marty Supreme</h3></a></li>
+          <li class="card"><a href="#"><img src="img/filme4.jpg" alt="Pôster de Hamnet"><h3>Hamnet</h3></a></li>
+          <li class="card"><a href="#"><img src="img/filme5.jpg" alt="Pôster de Uma Batalha Após a Outra"><h3>Uma Batalha Após A Outra</h3></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <figure class="banner" aria-hidden="true">
+      <img src="img/banner3.jpg" alt="">
+    </figure>
+
+    <section class="secao" aria-labelledby="titulo-populares">
+      <div class="wrapper">
+        <h2 class="secao-titulo" id="titulo-populares">Popular no Telesine</h2>
+        <hr>
+        <ul class="grid" role="list">
+          <li class="card"><a href="#"><img src="img/filme6.png" alt="Pôster de 12 Homens e Uma Sentença"><h3>12 Homens E Uma Sentença</h3></a></li>
+          <li class="card"><a href="#"><img src="img/filme7.jpg" alt="Pôster de Cidade de Deus"><h3>Cidade De Deus</h3></a></li>
+          <li class="card"><a href="#"><img src="img/filme8.jpg" alt="Pôster de A Lista de Schindler"><h3>A Lista De Schindler</h3></a></li>
+          <li class="card"><a href="#"><img src="img/filme9.jpg" alt="Pôster de Batman: O Cavaleiro das Trevas"><h3>Batman: O Cavaleiro Das Trevas</h3></a></li>
+          <li class="card"><a href="#"><img src="img/filme10.jpg" alt="Pôster de Túmulo dos Vagalumes"><h3>Túmulo Dos Vagalumes</h3></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="secao" aria-labelledby="titulo-artigos">
+      <div class="wrapper">
+        <h2 class="secao-titulo" id="titulo-artigos">Artigos &amp; Notícias</h2>
+        <hr>
+        <div class="artigos-grid">
+          <article class="artigo artigo--destaque">
+            <img src="img/filme1.jpg" alt="Cena de Devoradores de Estrelas">
+            <div class="artigo-corpo">
+              <span class="artigo-tag">Análise</span>
+              <h3 class="artigo-titulo">Por que Devoradores de Estrelas é o filme mais aguardado de 2025</h3>
+              <p class="artigo-resumo">A ficção científica volta com força neste épico que promete redefinir o gênero nas telas. Entenda o hype e o que esperar da estreia.</p>
+              <footer class="artigo-meta"><time datetime="2025-04-10">10 abr. 2025</time> · <span>5 min de leitura</span></footer>
+            </div>
+          </article>
+          <article class="artigo">
+            <img src="img/filme7.jpg" alt="Cena de Cidade de Deus">
+            <div class="artigo-corpo">
+              <span class="artigo-tag">Clássico</span>
+              <h3 class="artigo-titulo">Cidade de Deus, 20 anos depois: o legado que não some</h3>
+              <footer class="artigo-meta"><time datetime="2025-03-28">28 mar. 2025</time> · <span>4 min de leitura</span></footer>
+            </div>
+          </article>
+          <article class="artigo">
+            <img src="img/filme9.jpg" alt="Cena de Batman: O Cavaleiro das Trevas">
+            <div class="artigo-corpo">
+              <span class="artigo-tag">Lista</span>
+              <h3 class="artigo-titulo">Os 10 filmes de super-herói mais bem avaliados de todos os tempos</h3>
+              <footer class="artigo-meta"><time datetime="2025-03-15">15 mar. 2025</time> · <span>6 min de leitura</span></footer>
+            </div>
+          </article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- BANNER -->
-  <div class="banner">
-    <img src="img/banner3.jpg" alt="banner">
-  </div>
+  </main>
 
-  <!-- POPULARES -->
-  <section class="secao">
-    <div class="wrapper">
-      <p class="secao-titulo">Popular no Telesine</p>
-      <hr>
-      <div class="grid">
-        <div class="card">
-          <img src="img/filme6.png">
-          <h3>12 Homens E Uma Sentença</h3>
-        </div>
-        <div class="card">
-          <img src="img/filme7.jpg">
-          <h3>Cidade De Deus</h3>
-        </div>
-        <div class="card">
-          <img src="img/filme8.jpg">
-          <h3>A Lista De Schindler</h3>
-        </div>
-        <div class="card">
-          <img src="img/filme9.jpg">
-          <h3>Batman: O Cavaleiro Das Trevas</h3>
-        </div>
-        <div class="card">
-          <img src="img/filme10.jpg">
-          <h3>Túmulo Dos Vagalumes</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
     <div class="wrapper footer-inner">
-      <nav class="footer-links">
-        <a href="#">Sobre</a>
-        <a href="#">Pro</a>
-        <a href="#">Notícias</a>
-        <a href="#">Aplicativos</a>
-        <a href="#">Ano de Revisão</a>
-        <a href="#">Presentes</a>
-        <a href="#">Ajuda</a>
-        <a href="#">Termos</a>
-        <a href="#">API</a>
-        <a href="#">Contato</a>
+      <nav class="footer-links" aria-label="Links do rodapé">
+        <a href="#">Sobre</a><a href="#">Pro</a><a href="#">Notícias</a><a href="#">Aplicativos</a>
+        <a href="#">Ano de Revisão</a><a href="#">Presentes</a><a href="#">Ajuda</a>
+        <a href="#">Termos</a><a href="#">API</a><a href="#">Contato</a>
       </nav>
-      <div class="footer-socials">
-        <a href="#">IG</a>
-        <a href="#">TH</a>
-        <a href="#">X</a>
-        <a href="#">FB</a>
-        <a href="#">TK</a>
-        <a href="#">YT</a>
-      </div>
+      <nav class="footer-socials" aria-label="Redes sociais">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </nav>
     </div>
     <div class="wrapper footer-copy">
-      <p>© Telesine. Feito com ❤ no Brasil.</p>
+      <small>© Telesine. Feito com ❤ no Brasil.</small>
     </div>
   </footer>
 
