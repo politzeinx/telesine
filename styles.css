@@ -1,292 +1,419 @@
-/* ================================
-   RESET
-================================ */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* VARIÁVEIS GLOBAIS */
+:root {
+  --bg: #21282f; /* Cor de fundo principal */
+  --bg-dark: #14181c; /* Fundo mais escuro (navbar e footer) */
+
+  --green: #00e054; /* Verde principal */
+  --green-btn: #22c55e; /* Verde do botão */
+  --green-dk: #16a34a; /* Verde mais escuro */
+
+  --txt: #fff; /* Texto principal */
+  --txt-m: rgba(255,255,255,.48); /* Texto médio (menos destaque) */
+  --txt-f: rgba(255,255,255,.21); /* Texto fraco (footer, detalhes) */
+
+  --border: rgba(158,160,161,.23); /* Cor de bordas */
+
+  --r: 10px; /* Border radius padrão */
+  --r-btn: 6px; /* Border radius dos botões */
+
+  --f-display: 'Coiny', system-ui; /* Fonte para títulos */
+  --f-body: 'Poppins', sans-serif; /* Fonte padrão */
 }
 
-/* ================================
-   BASE
-================================ */
+/* RESET CSS (remove padrões do navegador) */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Facilita o controle de tamanho */
+}
+
+/* ESTILO GLOBAL */
 body {
-  background: #21282F;
-  color: white;
-  font-family: 'DM Sans', Arial, sans-serif;
+  background: var(--bg); /* Fundo geral */
+  color: var(--txt); /* Cor do texto */
+  font-family: var(--f-body); /* Fonte padrão */
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--f-display); /* Fonte especial para título */
 }
 
-/* ================================
-   WRAPPER
-================================ */
+a {
+  color: inherit; /* Herda cor do elemento pai */
+  text-decoration: none; /* Remove sublinhado */
+}
+
+ul {
+  list-style: none; /* Remove bolinhas da lista */
+}
+
+/* CONTAINER CENTRAL */
 .wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px;
+  max-width: 1200px; /* Largura máxima */
+  margin-inline: auto; /* Centraliza */
+  padding-inline: 40px; /* Espaçamento lateral */
 }
 
-/* ================================
-   NAVBAR
-================================ */
+/* NAVBAR */
 .navbar {
-  background: #14181c;
-  color: white;
+  background: var(--bg-dark); /* Fundo escuro */
 }
 
 .navbar-inner {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 60px;
+  align-items: center; /* Alinha verticalmente */
+  justify-content: space-between; /* Espaça os itens */
+  block-size: 60px; /* Altura da navbar */
 }
 
+/* LOGO */
 .logo {
   font-weight: bold;
-  white-space: nowrap;
+  white-space: nowrap; /* Evita quebra de linha */
+  display: flex;
+  align-items: center;
+  gap: 1px;
 }
 
 .logo .icon {
-  color: #ffffff;
+  background: var(--c); /* Cor dinâmica */
+  color: #fff;
   padding: 2px 6px;
   border-radius: 4px;
+  font-family: 'Inter', sans-serif;
 }
 
+/* MENU */
 .menu {
-  list-style: none;
   display: flex;
-  gap: 40px;
+  gap: 40px; /* Espaço entre itens */
 }
 
-.menu li {
-  cursor: pointer;
-  position: relative;
+.menu a {
+  position: relative; /* Necessário para o ::after */
 }
 
-.menu .active {
-  color: #00E054;
+/* Hover e item ativo */
+.menu a:hover,
+.menu a.active {
+  color: var(--green);
 }
 
-.menu .active::after {
+/* Linha embaixo do item ativo */
+.menu a.active::after {
   content: "";
   position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background: #00E054;
+  inset-block-end: -5px; /* Fica abaixo do texto */
+  inset-inline: 0;
+  block-size: 2px;
+  background: var(--green);
 }
 
+/* LADO DIREITO DA NAVBAR */
 .nav-right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* ================================
-   BOTÃO LOG
-================================ */
+/* BOTÃO LOG */
 .buttonlog {
   display: inline-flex;
   align-items: stretch;
-  border-radius: 6px;
-  overflow: hidden;
+  border-radius: var(--r-btn);
+  overflow: hidden; /* Junta os botões */
 }
 
+/* Botão principal */
 .buttonmain {
-  background: #22c55e;
+  background: var(--green-btn);
   color: #fff;
   border: none;
-  padding: 0 14px;
-  height: 36px;
-  font-size: 14px;
-  font-weight: 500;
+  padding-inline: 14px;
+  block-size: 36px;
+  font: 500 14px var(--f-body);
   cursor: pointer;
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
 }
 
+/* Botão da seta */
 .buttonarrow {
-  background: #16a34a;
+  background: var(--green-dk);
   color: #fff;
   border: none;
-  border-left: 1px solid #15803d;
-  padding: 0 10px;
+  border-inline-start: 1px solid #15803d;
+  padding-inline: 10px;
   font-size: 12px;
   cursor: pointer;
 }
 
-/* ================================
-   SEARCH
-================================ */
-.search {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+/* Hover botão log */
+.buttonmain,
+.buttonarrow {
   transition: 0.3s;
 }
 
-.search:hover {
-  background: rgba(255, 255, 255, 0.3);
+.buttonmain:hover {
+  background: var(--green-dk);
+  transform: translateY(-1px);
 }
 
+.buttonarrow:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.buttonmain:active,
+.buttonarrow:active {
+  transform: translateY(1px);
+}
+
+/* BOTÃO DE BUSCA */
+.search {
+  inline-size: 35px;
+  block-size: 35px;
+  border-radius: 50%; /* Deixa redondo */
+  border: none;
+  background: rgba(255,255,255,.15);
+  display: grid;
+  place-items: center; /* Centraliza o ícone */
+  cursor: pointer;
+  transition: background .3s;
+}
+
+/* Efeito ao passar o mouse */
+.search:hover {
+  background: rgba(255,255,255,.3);
+}
+
+/* Ícone da lupa */
 .search-icon {
-  width: 18px;
-  height: 18px;
-  stroke: white;
+  inline-size: 18px;
+  block-size: 18px;
+  stroke: #fff;
   stroke-width: 2;
   fill: none;
 }
 
-/* ================================
-   HEADER
-================================ */
-.header {
-  background: #21282F;
-  padding: 30px 0 20px;
+/* HEADER */
+.page-header {
+  padding-block: 30px 20px;
   text-align: center;
 }
 
-.header h1 {
+.page-header h1 {
   font-size: 2rem;
-  margin-bottom: 6px;
+  margin-block-end: 6px;
 }
 
-.header p {
-  color: #ffffff7a;
+.page-header p {
+  color: var(--txt-m);
   font-size: 14px;
 }
 
-/* ================================
-   SEÇÕES
-================================ */
+/* SEÇÕES */
 .secao {
-  padding: 30px 0;
+  padding-block: 30px;
 }
 
 .secao-titulo {
   font-size: 15px;
   font-weight: 500;
-  color: #ffffffcc;
-  margin-bottom: 6px;
+  color: rgba(255,255,255,.8);
+  margin-block-end: 6px;
 }
 
+/* Linha separadora */
 hr {
   border: none;
-  border-top: 1px solid #9ea0a13a;
-  margin-bottom: 20px;
+  border-block-start: 1px solid var(--border);
+  margin-block-end: 20px;
 }
 
-/* ================================
-   GRID
-================================ */
+/* GRID DE FILMES */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 20px;
 }
 
-/* ================================
-   CARDS
-================================ */
+/* CARD */
 .card {
-  background: #14181c96;
+  background: rgba(20,24,28,.59);
   padding: 10px;
-  border-radius: 10px;
+  border-radius: var(--r);
   text-align: center;
-  color: white;
+}
+
+.card a {
+  display: block;
 }
 
 .card img {
-  width: 100%;
+  inline-size: 100%;
   border-radius: 8px;
+  display: block;
 }
 
 .card h3 {
-  margin-top: 10px;
-  font-size: 13px;
-  font-weight: 500;
-  font-family: 'DM Sans', sans-serif;
+  margin-block-start: 10px;
+  font: 500 13px var(--f-body);
 }
 
-/* ================================
-   BANNER
-================================ */
+/* BANNER */
 .banner {
-  width: 100%;
-  height: 100px;
+  inline-size: 100%;
+  block-size: 100px;
   text-align: center;
 }
 
 .banner img {
-  width: 58%;
-  height: 100%;
-  object-fit: cover;
+  inline-size: 58%;
+  block-size: 100%;
+  object-fit: cover; /* Ajusta imagem sem distorcer */
   object-position: center;
 }
 
-/* ================================
-   FOOTER
-================================ */
-footer {
-  background: #14181c;
-  padding: 20px 0;
-  border-top: 1px solid #ffffff10;
-  margin-top: 20px;
+/* ARTIGOS */
+.artigos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas */
+  gap: 20px;
 }
 
+/* CARD DE ARTIGO */
+.artigo {
+  display: flex;
+  flex-direction: column;
+  background: rgba(20,24,28,.59);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+.artigo img {
+  inline-size: 100%;
+  block-size: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Conteúdo do artigo */
+.artigo-corpo {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Tag (tipo: análise, clássico, etc) */
+.artigo-tag {
+  font: 700 11px var(--f-body);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--green);
+}
+
+.artigo-titulo {
+  font: 600 14px/1.4 var(--f-body);
+}
+
+/* Resumo (escondido por padrão) */
+.artigo-resumo {
+  font-size: 13px;
+  color: var(--txt-m);
+  line-height: 1.5;
+  display: none;
+}
+
+/* Meta (data, tempo de leitura) */
+.artigo-meta {
+  margin-block-start: auto;
+  font-size: 12px;
+  color: var(--txt-f);
+  padding: 10px;
+}
+
+/* ARTIGO EM DESTAQUE */
+.artigo--destaque {
+  grid-row: span 2; /* Ocupa duas linhas */
+}
+
+.artigo--destaque img {
+  block-size: 220px;
+}
+
+.artigo--destaque .artigo-titulo {
+  font-size: 17px;
+}
+
+/* Mostra o resumo só no destaque */
+.artigo--destaque .artigo-resumo {
+  display: block;
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg-dark);
+  padding-block: 20px;
+  border-block-start: 1px solid rgba(255,255,255,.06);
+  margin-block-start: 20px;
+}
+
+/* Conteúdo interno */
 .footer-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Quebra linha em telas pequenas */
   gap: 12px;
 }
 
+/* Links */
 .footer-links {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 16px;
 }
 
-.footer-links a {
-  color: #ffffff60;
-  text-decoration: none;
-  font-size: 13px;
-}
-
-.footer-links a:hover {
-  color: #fff;
-}
-
+/* Redes sociais */
 .footer-socials {
   display: flex;
   gap: 14px;
 }
 
+/* Estilo dos links */
+.footer-links a,
 .footer-socials a {
-  color: #ffffff60;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--txt-m);
   font-size: 13px;
-  font-weight: bold;
 }
 
-.footer-socials a:hover {
-  color: #fff;
+.footer-socials i {
+  font-size: 18px;
+  transition: 0.3s;
 }
 
+/* Hover */
+.footer-links a:hover {
+  color: var(--green);
+}
+
+.footer-socials a:hover i {
+  transform: scale(1.2);
+  color: var(--green);
+}
+
+/* Copyright */
 .footer-copy {
-  margin-top: 10px;
+  margin-block-start: 10px;
 }
 
-.footer-copy p {
+.footer-copy small {
   font-size: 12px;
-  color: #ffffff35;
+  color: var(--txt-f);
 }
