@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Telesine — Catálogo de filmes com trailers, fotos, horários e conteúdo.">
+  <title>Telesine — Catálogo</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <link rel="icon" type="image/png" href="favicon/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Poppins:wght@400;500;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+  <nav class="navbar" aria-label="Navegação principal">
+    <div class="wrapper navbar-inner">
+      <a class="logo" href="/" aria-label="Telesine — página inicial">
+        <span class="icon" style="--c:#dd901d">T</span><span class="icon" style="--c:#09ca23">E</span><span class="icon" style="--c:#4aa6f1">L</span><span class="icon" style="--c:#8c0ee0">E</span><span class="icon" style="--c:#ec4d4d">S</span>ine
+      </a>
+      <ul class="menu" role="list">
+        <li><a href="#" class="active" aria-current="page" data-target="topo">Home</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="#" data-target="sec-parceiros">Parceiros</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="buttonlog">
+          <button class="buttonmain" type="button">+ LOG</button>
+          <button class="buttonarrow" type="button" aria-label="Mais opções">▾</button>
+        </div>
+        <div class="search-wrap">
+          <input type="search" class="search-input" id="searchInput" placeholder="Buscar filme..." aria-label="Campo de busca">
+          <button class="search" type="button" id="searchBtn" aria-label="Buscar filmes">
+            <svg viewBox="0 0 24 24" class="search-icon" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/>
+            </svg>
+          </button>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header" id="topo">
+    <div class="wrapper">
+      <h1>Catálogo de Filmes</h1>
+      <p>Trailer, fotos, horários e conteúdo de todos os filmes.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- SEÇÃO: RESULTADOS DA BUSCA (aparece só ao pesquisar) -->
+    <section class="secao hidden" id="secaoBusca" aria-labelledby="titulo-busca">
+      <div class="wrapper">
+        <h2 class="secao-titulo" id="titulo-busca">Resultados da busca</h2>
+        <hr>
+        <ul class="grid" id="gridBusca" role="list"></ul>
+        <p class="busca-vazia hidden" id="buscaVazia">Nenhum filme encontrado.</p>
+      </div>
+    </section>
+
+    <!-- SEÇÃO: FAVORITOS (aparece só com filmes favoritados) -->
+    <section class="secao secao-favoritos hidden" id="secaoFavoritos" aria-labelledby="titulo-favoritos">
+      <div class="wrapper">
+        <h2 class="secao-titulo" id="titulo-favoritos"><i class="fa-solid fa-eye" style="color:var(--green)"></i> Assistidos Recentemente</h2>
+        <hr>
+        <ul class="grid" id="gridFavoritos" role="list"></ul>
+      </div>
+    </section>
+
+    <!-- SEÇÃO: FILMES NOVOS -->
+    <section class="secao" id="sec-novos" aria-labelledby="titulo-novos">
+      <div class="wrapper">
+        <h2 class="secao-titulo" id="titulo-novos">Filmes novos no Telesine</h2>
+        <hr>
+        <ul class="grid" role="list">
+          <li class="card" data-id="1"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme1.jpg" alt="Pôster de Devoradores de Estrelas"><h3>Devoradores De Estrelas</h3></a></li>
+          <li class="card" data-id="2"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme2.jpg" alt="Pôster de Pecadores"><h3>Pecadores</h3></a></li>
+          <li class="card" data-id="3"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme3.jpg" alt="Pôster de Marty Supreme"><h3>Marty Supreme</h3></a></li>
+          <li class="card" data-id="4"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme4.jpg" alt="Pôster de Hamnet"><h3>Hamnet</h3></a></li>
+          <li class="card" data-id="5"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme5.jpg" alt="Pôster de Uma Batalha Após a Outra"><h3>Uma Batalha Após A Outra</h3></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <figure class="banner" aria-hidden="true">
+      <img src="img/banner3.jpg" alt="">
+    </figure>
+
+    <!-- SEÇÃO: POPULARES -->
+    <section class="secao" id="sec-populares" aria-labelledby="titulo-populares">
+      <div class="wrapper">
+        <h2 class="secao-titulo" id="titulo-populares">Popular no Telesine</h2>
+        <hr>
+        <ul class="grid" role="list">
+          <li class="card" data-id="6"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme6.png" alt="Pôster de 12 Homens e Uma Sentença"><h3>12 Homens E Uma Sentença</h3></a></li>
+          <li class="card" data-id="7"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme7.jpg" alt="Pôster de Cidade de Deus"><h3>Cidade De Deus</h3></a></li>
+          <li class="card" data-id="8"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme8.jpg" alt="Pôster de A Lista de Schindler"><h3>A Lista De Schindler</h3></a></li>
+          <li class="card" data-id="9"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme9.jpg" alt="Pôster de Batman: O Cavaleiro das Trevas"><h3>Batman: O Cavaleiro Das Trevas</h3></a></li>
+          <li class="card" data-id="10"><button class="fav-btn" aria-label="Favoritar"><i class="fa-regular fa-heart"></i></button><a href="#" class="card-link"><img src="img/filme10.jpg" alt="Pôster de Túmulo dos Vagalumes"><h3>Túmulo Dos Vagalumes</h3></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SEÇÃO: ARTIGOS E NOTÍCIAS -->
+    <section class="secao" aria-labelledby="titulo-artigos">
+      <div class="wrapper">
+        <h2 class="secao-titulo" id="titulo-artigos">Artigos &amp; Notícias</h2>
+        <hr>
+        <div class="artigos-grid">
+          <article class="artigo artigo--destaque" data-article="1" tabindex="0" role="button" aria-label="Ler artigo">
+            <img src="img/filme1.1.jpg" alt="Cena de Devoradores de Estrelas">
+            <div class="artigo-corpo">
+              <span class="artigo-tag">Análise</span>
+              <h3 class="artigo-titulo">Por que Devoradores de Estrelas é o filme mais aguardado de 2025</h3>
+              <p class="artigo-resumo">A ficção científica volta com força neste épico que promete redefinir o gênero nas telas. Entenda o hype e o que esperar da estreia.</p>
+              <footer class="artigo-meta"><time datetime="2025-04-10">10 abr. 2025</time> · <span>5 min de leitura</span></footer>
+            </div>
+          </article>
+          <article class="artigo" data-article="2" tabindex="0" role="button" aria-label="Ler artigo">
+            <img src="img/filme7.2.jpg" style="object-position: center 20%;" alt="Cena de Cidade de Deus">
+            <div class="artigo-corpo">
+              <span class="artigo-tag">Clássico</span>
+              <h3 class="artigo-titulo">Cidade de Deus, 20 anos depois: o legado que não some</h3>
+              <footer class="artigo-meta"><time datetime="2025-03-28">28 mar. 2025</time> · <span>4 min de leitura</span></footer>
+            </div>
+          </article>
+          <article class="artigo" data-article="3" tabindex="0" role="button" aria-label="Ler artigo">
+            <img src="img/filme9.1.jpg" style="object-position: center 20%;" alt="Cena de Batman: O Cavaleiro das Trevas">
+            <div class="artigo-corpo">
+              <span class="artigo-tag">Lista</span>
+              <h3 class="artigo-titulo">Os 10 filmes de super-herói mais bem avaliados de todos os tempos</h3>
+              <footer class="artigo-meta"><time datetime="2025-03-15">15 mar. 2025</time> · <span>6 min de leitura</span></footer>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEÇÃO: PARCEIROS -->
+    <section class="secao" id="sec-parceiros" aria-labelledby="titulo-parceiros">
+      <div class="wrapper">
+        <h2 class="secao-titulo" id="titulo-parceiros">Nossos Parceiros</h2>
+        <hr>
+        <p class="parceiros-intro">Empresas e plataformas que tornam o Telesine possível.</p>
+        <ul class="parceiros-grid" role="list">
+          <li class="parceiro"><i class="fa-solid fa-clapperboard"></i><span>CineMax Studios</span></li>
+          <li class="parceiro"><i class="fa-solid fa-film"></i><span>Reel Pictures</span></li>
+          <li class="parceiro"><i class="fa-solid fa-ticket"></i><span>IngressoJá</span></li>
+          <li class="parceiro"><i class="fa-solid fa-masks-theater"></i><span>PipocaPlus</span></li>
+          <li class="parceiro"><i class="fa-solid fa-tv"></i><span>StreamBox</span></li>
+          <li class="parceiro"><i class="fa-solid fa-video"></i><span>ProduTela</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="rodape">
+    <div class="wrapper footer-inner">
+      <nav class="footer-links" aria-label="Links do rodapé">
+        <a href="#">Sobre</a><a href="#">Pro</a><a href="#">Notícias</a><a href="#">Aplicativos</a>
+        <a href="#">Ano de Revisão</a><a href="#">Presentes</a><a href="#">Ajuda</a>
+        <a href="#">Termos</a><a href="#">API</a><a href="#">Contato</a>
+      </nav>
+      <nav class="footer-socials" aria-label="Redes sociais">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </nav>
+    </div>
+    <div class="wrapper footer-copy">
+      <small>© Telesine. Feito com ❤ no Brasil.</small>
+    </div>
+  </footer>
+
+  <!-- MODAL DE LOGIN/CADASTRO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+
+      <!-- ABA LOGIN -->
+      <div class="modal-tab" id="tabLogin">
+        <h2 class="modal-title">Entrar</h2>
+        <form id="formLogin" novalidate>
+          <div class="input-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="seu@email.com" required>
+          </div>
+          <div class="input-group">
+            <label for="loginSenha">Senha</label>
+            <input type="password" id="loginSenha" placeholder="Sua senha" required>
+          </div>
+          <p class="form-error" id="loginError"></p>
+          <button type="submit" class="btn-submit">Entrar</button>
+        </form>
+        <p class="modal-switch">Não tem conta? <a href="#" id="goToRegister">Cadastre-se</a></p>
+      </div>
+
+      <!-- ABA CADASTRO -->
+      <div class="modal-tab hidden" id="tabRegister">
+        <h2 class="modal-title">Criar Conta</h2>
+        <form id="formRegister" novalidate>
+          <div class="input-group">
+            <label for="regNome">Nome</label>
+            <input type="text" id="regNome" placeholder="Seu nome" required>
+          </div>
+          <div class="input-group">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" placeholder="seu@email.com" required>
+          </div>
+          <div class="input-group">
+            <label for="regSenha">Senha</label>
+            <input type="password" id="regSenha" placeholder="Mínimo 6 caracteres" required>
+          </div>
+          <div class="input-group">
+            <label for="regConfirm">Confirmar Senha</label>
+            <input type="password" id="regConfirm" placeholder="Repita a senha" required>
+          </div>
+          <p class="form-error" id="registerError"></p>
+          <button type="submit" class="btn-submit">Cadastrar</button>
+        </form>
+        <p class="modal-switch">Já tem conta? <a href="#" id="goToLogin">Entrar</a></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL DE DETALHES DO FILME -->
+  <div class="modal-overlay" id="detailOverlay">
+    <div class="modal modal-detail">
+      <button class="modal-close" id="detailClose" aria-label="Fechar">&times;</button>
+      <div class="detail-content">
+        <div class="detail-poster" id="detailPoster"></div>
+        <div class="detail-info">
+          <h2 class="detail-title" id="detailTitle"></h2>
+          <div class="detail-meta" id="detailMeta"></div>
+          <p class="detail-sinopse" id="detailSinopse"></p>
+          <button class="btn-submit detail-fav" id="detailFav" type="button">
+            <i class="fa-regular fa-eye"></i> <span>Marcar como assistido</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- AVALIAÇÕES E COMENTÁRIOS -->
+      <section class="avaliacoes">
+        <div class="avaliacoes-head">
+          <h3 class="avaliacoes-titulo">Avaliações</h3>
+          <div class="media-nota" id="mediaNota"></div>
+        </div>
+
+        <!-- Form de avaliação (logado) -->
+        <form class="aval-form" id="avalForm">
+          <p class="aval-label">Sua nota:</p>
+          <div class="estrelas" id="estrelas" role="radiogroup" aria-label="Dar nota">
+            <i class="fa-regular fa-star" data-valor="1" role="radio" aria-label="1 estrela"></i>
+            <i class="fa-regular fa-star" data-valor="2" role="radio" aria-label="2 estrelas"></i>
+            <i class="fa-regular fa-star" data-valor="3" role="radio" aria-label="3 estrelas"></i>
+            <i class="fa-regular fa-star" data-valor="4" role="radio" aria-label="4 estrelas"></i>
+            <i class="fa-regular fa-star" data-valor="5" role="radio" aria-label="5 estrelas"></i>
+          </div>
+          <textarea id="avalTexto" class="aval-texto" placeholder="Escreva um comentário (opcional)..." rows="2"></textarea>
+          <p class="form-error" id="avalError"></p>
+          <button type="submit" class="btn-submit aval-enviar">Publicar avaliação</button>
+        </form>
+
+        <!-- Aviso para deslogados -->
+        <p class="aval-login-aviso hidden" id="avalLoginAviso">
+          <a href="#" id="avalLoginLink">Entre na sua conta</a> para avaliar e comentar.
+        </p>
+
+        <!-- Lista de comentários -->
+        <ul class="comentarios" id="comentarios" role="list"></ul>
+      </section>
+    </div>
+  </div>
+
+  <!-- MODAL DE LEITURA DE ARTIGO -->
+  <div class="modal-overlay" id="artigoOverlay">
+    <div class="modal modal-artigo">
+      <button class="modal-close" id="artigoClose" aria-label="Fechar">&times;</button>
+      <img class="artigo-modal-img" id="artigoModalImg" src="" alt="">
+      <div class="artigo-modal-corpo">
+        <span class="artigo-tag" id="artigoModalTag"></span>
+        <h2 class="artigo-modal-titulo" id="artigoModalTitulo"></h2>
+        <p class="artigo-modal-meta" id="artigoModalMeta"></p>
+        <div class="artigo-modal-texto" id="artigoModalTexto"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE PERFIL -->
+  <div class="modal-overlay" id="perfilOverlay">
+    <div class="modal modal-perfil">
+      <button class="modal-close" id="perfilClose" aria-label="Fechar">&times;</button>
+
+      <header class="perfil-topo">
+        <div class="perfil-avatar" id="perfilAvatar">
+          <span class="perfil-avatar-inicial" id="perfilAvatarInicial">U</span>
+        </div>
+        <div class="perfil-id">
+          <div class="perfil-nome-linha">
+            <h2 class="perfil-nome" id="perfilNome"></h2>
+            <button class="perfil-edit-btn" id="perfilEditBtn" type="button">Editar perfil</button>
+          </div>
+          <p class="perfil-bio" id="perfilBio"></p>
+          <p class="perfil-local" id="perfilLocal"></p>
+        </div>
+        <div class="perfil-stats">
+          <div class="perfil-stat"><strong id="statFavs">0</strong><span>Assistidos</span></div>
+          <div class="perfil-stat"><strong id="statReviews">0</strong><span>Avaliações</span></div>
+          <div class="perfil-stat"><strong id="statMedia">—</strong><span>Nota média</span></div>
+        </div>
+      </header>
+
+      <!-- Formulário de edição (oculto) -->
+      <form class="perfil-edit-form hidden" id="perfilEditForm">
+        <div class="input-group">
+          <label>Foto de perfil</label>
+          <div class="foto-upload">
+            <div class="foto-preview" id="fotoPreview"><span id="fotoPreviewInicial">U</span></div>
+            <div class="foto-upload-acoes">
+              <label for="editFoto" class="foto-btn">Escolher foto</label>
+              <input type="file" id="editFoto" accept="image/*" hidden>
+              <button type="button" class="foto-remover" id="fotoRemover">Remover foto</button>
+            </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="editBio">Bio</label>
+          <textarea id="editBio" class="aval-texto" rows="2" placeholder="Conte algo sobre você..."></textarea>
+        </div>
+        <div class="input-group">
+          <label for="editLocal">Localização</label>
+          <input type="text" id="editLocal" placeholder="Ex: Belém, Pará">
+        </div>
+        <div class="input-group">
+          <label>4 favoritos de todos os tempos</label>
+          <div class="top-fav-selects">
+            <select class="top-fav-select" id="topFav0" aria-label="Favorito 1"></select>
+            <select class="top-fav-select" id="topFav1" aria-label="Favorito 2"></select>
+            <select class="top-fav-select" id="topFav2" aria-label="Favorito 3"></select>
+            <select class="top-fav-select" id="topFav3" aria-label="Favorito 4"></select>
+          </div>
+        </div>
+        <div class="perfil-edit-acoes">
+          <button type="submit" class="btn-submit">Salvar</button>
+          <button type="button" class="btn-cancelar" id="editCancelar">Cancelar</button>
+        </div>
+      </form>
+
+      <section class="perfil-secao">
+        <h3 class="perfil-secao-titulo">Favoritos de Todos os Tempos</h3>
+        <hr>
+        <ul class="grid perfil-grid perfil-top-grid" id="perfilTopFavs" role="list"></ul>
+        <p class="perfil-vazio hidden" id="perfilTopFavsVazio">Você ainda não escolheu seus 4 favoritos. Use "Editar perfil".</p>
+      </section>
+
+      <section class="perfil-secao">
+        <h3 class="perfil-secao-titulo">Últimos Filmes Assistidos</h3>
+        <hr>
+        <ul class="grid perfil-grid" id="perfilFavs" role="list"></ul>
+        <p class="perfil-vazio hidden" id="perfilFavsVazio">Você ainda não marcou nenhum filme como assistido.</p>
+      </section>
+
+      <section class="perfil-secao">
+        <h3 class="perfil-secao-titulo">Minhas Avaliações</h3>
+        <hr>
+        <ul class="comentarios" id="perfilReviews" role="list"></ul>
+        <p class="perfil-vazio hidden" id="perfilReviewsVazio">Você ainda não avaliou nenhum filme.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/movies.js"></script>
+  <script src="js/reviews.js"></script>
+  <script src="js/articles.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

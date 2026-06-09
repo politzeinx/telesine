@@ -1,0 +1,64 @@
+/* ============================================================
+   BASE — variáveis, reset e estilos globais
+   ============================================================ */
+
+/* VARIÁVEIS GLOBAIS */
+:root {
+  --bg: #21282f; /* Cor de fundo principal */
+  --bg-dark: #14181c; /* Fundo mais escuro (navbar e footer) */
+
+  --green: #00e054; /* Verde principal */
+  --green-btn: #22c55e; /* Verde do botão */
+  --green-dk: #16a34a; /* Verde mais escuro */
+
+  --txt: #fff; /* Texto principal */
+  --txt-m: rgba(255,255,255,.48); /* Texto médio (menos destaque) */
+  --txt-f: rgba(255,255,255,.21); /* Texto fraco (footer, detalhes) */
+
+  --border: rgba(158,160,161,.23); /* Cor de bordas */
+
+  --r: 10px; /* Border radius padrão */
+  --r-btn: 6px; /* Border radius dos botões */
+
+  --f-display: 'Coiny', system-ui; /* Fonte para títulos */
+  --f-body: 'Poppins', sans-serif; /* Fonte padrão */
+}
+
+/* RESET CSS (remove padrões do navegador) */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Facilita o controle de tamanho */
+}
+
+/* ESTILO GLOBAL */
+body {
+  background: var(--bg); /* Fundo geral */
+  color: var(--txt); /* Cor do texto */
+  font-family: var(--f-body); /* Fonte padrão */
+}
+
+h1 {
+  font-family: var(--f-display); /* Fonte especial para título */
+}
+
+a {
+  color: inherit; /* Herda cor do elemento pai */
+  text-decoration: none; /* Remove sublinhado */
+}
+
+ul {
+  list-style: none; /* Remove bolinhas da lista */
+}
+
+/* Utilitário: esconde qualquer elemento com a classe .hidden */
+.hidden {
+  display: none !important;
+}
+
+/* CONTAINER CENTRAL */
+.wrapper {
+  max-width: 1200px; /* Largura máxima */
+  margin-inline: auto; /* Centraliza */
+  padding-inline: 40px; /* Espaçamento lateral */
+}

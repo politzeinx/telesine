@@ -1,0 +1,461 @@
+/* ============================================================
+   COMPONENTS — botões, busca, cards, grid, artigos e parceiros
+   ============================================================ */
+
+/* BOTÃO LOG */
+.buttonlog {
+  display: inline-flex;
+  align-items: stretch;
+  border-radius: var(--r-btn);
+  overflow: hidden; /* Junta os botões */
+}
+
+/* Botão principal */
+.buttonmain {
+  background: var(--green-btn);
+  color: #fff;
+  border: none;
+  padding-inline: 14px;
+  block-size: 36px;
+  font: 500 14px var(--f-body);
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+}
+
+/* Botão da seta */
+.buttonarrow {
+  background: var(--green-dk);
+  color: #fff;
+  border: none;
+  border-inline-start: 1px solid #15803d;
+  padding-inline: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+/* Hover botão log */
+.buttonmain,
+.buttonarrow {
+  transition: 0.3s;
+}
+
+.buttonmain:hover {
+  background: var(--green-dk);
+  transform: translateY(-1px);
+}
+
+.buttonarrow:hover {
+  background: #15803d;
+  transform: translateY(-1px);
+}
+
+.buttonmain:active,
+.buttonarrow:active {
+  transform: translateY(1px);
+}
+
+/* Nome do usuário logado */
+.user-name {
+  background: var(--green-btn);
+  color: #fff;
+  padding: 6px 14px;
+  font: 600 13px var(--f-body);
+  border: none;
+  border-radius: var(--r-btn) 0 0 var(--r-btn);
+  white-space: nowrap;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  line-height: 24px;
+  cursor: pointer;
+  transition: background .2s;
+}
+
+.user-name:hover {
+  background: var(--green-dk);
+}
+
+.btn-logout {
+  background: var(--green-dk);
+  color: #fff;
+  border: none;
+  border-left: 1px solid #15803d;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 0 var(--r-btn) var(--r-btn) 0;
+  transition: background .2s;
+}
+
+.btn-logout:hover {
+  background: #15803d;
+}
+
+/* BOTÃO DE BUSCA */
+.search {
+  inline-size: 35px;
+  block-size: 35px;
+  border-radius: 50%; /* Deixa redondo */
+  border: none;
+  background: rgba(255,255,255,.15);
+  display: grid;
+  place-items: center; /* Centraliza o ícone */
+  cursor: pointer;
+  transition: background .3s;
+}
+
+/* Efeito ao passar o mouse */
+.search:hover {
+  background: rgba(255,255,255,.3);
+}
+
+/* Ícone da lupa */
+.search-icon {
+  inline-size: 18px;
+  block-size: 18px;
+  stroke: #fff;
+  stroke-width: 2;
+  fill: none;
+}
+
+/* CAMPO DE BUSCA */
+.search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-input {
+  width: 0;
+  padding: 0;
+  border: none;
+  border-radius: var(--r-btn);
+  background: rgba(255, 255, 255, .1);
+  color: #fff;
+  font-size: 14px;
+  font-family: var(--f-body);
+  outline: none;
+  opacity: 0;
+  transition: width .3s, padding .3s, opacity .3s;
+}
+
+.search-input.open {
+  width: 180px;
+  padding: 8px 12px;
+  opacity: 1;
+}
+
+.search-input::placeholder {
+  color: var(--txt-f);
+}
+
+/* Mensagem de busca vazia */
+.busca-vazia {
+  text-align: center;
+  color: var(--txt-m);
+  padding: 30px;
+  font-size: 15px;
+}
+
+/* GRID DE FILMES */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: rgba(20,24,28,.59);
+  padding: 10px;
+  border-radius: var(--r);
+  text-align: center;
+  position: relative;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+}
+
+.card.hidden {
+  display: none;
+}
+
+.card a {
+  display: block;
+}
+
+.card img {
+  inline-size: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+/* Pôster placeholder (filmes sem imagem real) */
+.poster-ph {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+  text-align: left;
+}
+
+.poster-ph span {
+  font: 700 15px/1.3 var(--f-body);
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, .6);
+}
+
+.card h3 {
+  margin-block-start: 10px;
+  font: 500 13px var(--f-body);
+}
+
+.card-link {
+  cursor: pointer;
+}
+
+/* BOTÃO DE FAVORITAR */
+.fav-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, .55);
+  color: #fff;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  z-index: 2;
+  transition: background .2s, transform .2s;
+}
+
+.fav-btn:hover {
+  background: rgba(0, 0, 0, .8);
+  transform: scale(1.1);
+}
+
+.fav-btn.favorited {
+  color: var(--green);
+}
+
+/* ARTIGOS */
+.artigos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Duas colunas */
+  gap: 20px;
+}
+
+/* CARD DE ARTIGO */
+.artigo {
+  display: flex;
+  flex-direction: column;
+  background: rgba(20,24,28,.59);
+  border-radius: var(--r);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.artigo:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+}
+
+.artigo:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+
+.artigo img {
+  inline-size: 100%;
+  block-size: 140px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Conteúdo do artigo */
+.artigo-corpo {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Tag (tipo: análise, clássico, etc) */
+.artigo-tag {
+  font: 700 11px var(--f-body);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--green);
+}
+
+.artigo-titulo {
+  font: 600 14px/1.4 var(--f-body);
+}
+
+/* Resumo (escondido por padrão) */
+.artigo-resumo {
+  font-size: 13px;
+  color: var(--txt-m);
+  line-height: 1.5;
+  display: none;
+}
+
+/* Meta (data, tempo de leitura) */
+.artigo-meta {
+  margin-block-start: auto;
+  font-size: 12px;
+  color: var(--txt-f);
+  padding: 10px;
+}
+
+/* ARTIGO EM DESTAQUE */
+.artigo--destaque {
+  grid-row: span 2; /* Ocupa duas linhas */
+}
+
+.artigo--destaque img {
+  block-size: 220px;
+}
+
+.artigo--destaque .artigo-titulo {
+  font-size: 17px;
+}
+
+/* Mostra o resumo só no destaque */
+.artigo--destaque .artigo-resumo {
+  display: block;
+}
+
+/* SEÇÃO DE PARCEIROS */
+.parceiros-intro {
+  color: var(--txt-m);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.parceiros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+}
+
+.parceiro {
+  background: rgba(20, 24, 28, .59);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  transition: transform .2s, border-color .2s;
+}
+
+.parceiro:hover {
+  transform: translateY(-4px);
+  border-color: var(--green);
+}
+
+.parceiro i {
+  font-size: 32px;
+  color: var(--green);
+}
+
+.parceiro span {
+  font: 600 14px var(--f-body);
+  color: rgba(255, 255, 255, .85);
+}
+
+
+/* ===========================
+   CATÁLOGO (página)
+   =========================== */
+
+/* Durante a busca na home, mostra só os resultados */
+main.buscando > *:not(#secaoBusca) {
+  display: none;
+}
+
+/* Cabeçalho da seção com busca */
+.cat-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.cat-busca {
+  padding: 9px 14px;
+  border-radius: var(--r-btn);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, .05);
+  color: #fff;
+  font: 14px var(--f-body);
+  outline: none;
+  min-width: 220px;
+  transition: border-color .2s;
+}
+
+.cat-busca:focus {
+  border-color: var(--green);
+}
+
+.cat-busca::placeholder {
+  color: var(--txt-f);
+}
+
+/* Filtros (gênero + busca) */
+.cat-filtros {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cat-genero {
+  padding: 9px 14px;
+  border-radius: var(--r-btn);
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, .05);
+  color: #fff;
+  font: 14px var(--f-body);
+  outline: none;
+  cursor: pointer;
+  transition: border-color .2s;
+}
+
+.cat-genero:focus {
+  border-color: var(--green);
+}
+
+.cat-genero option {
+  background: #1c2228;
+  color: #fff;
+}
+
+@media (max-width: 480px) {
+  .cat-filtros {
+    width: 100%;
+  }
+
+  .cat-genero,
+  .cat-busca {
+    flex: 1;
+    min-width: 0;
+  }
+}

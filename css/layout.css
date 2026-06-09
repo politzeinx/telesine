@@ -1,0 +1,233 @@
+/* ============================================================
+   LAYOUT — navbar, header, seções, banner, footer e menu mobile
+   ============================================================ */
+
+/* NAVBAR */
+.navbar {
+  background: var(--bg-dark); /* Fundo escuro */
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center; /* Alinha verticalmente */
+  justify-content: space-between; /* Espaça os itens */
+  block-size: 60px; /* Altura da navbar */
+}
+
+/* LOGO */
+.logo {
+  font-weight: bold;
+  white-space: nowrap; /* Evita quebra de linha */
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.logo .icon {
+  background: var(--c); /* Cor dinâmica */
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'Inter', sans-serif;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  gap: 40px; /* Espaço entre itens */
+}
+
+.menu a {
+  position: relative; /* Necessário para o ::after */
+}
+
+/* Hover e item ativo */
+.menu a:hover,
+.menu a.active {
+  color: var(--green);
+}
+
+/* Linha embaixo do item ativo */
+.menu a.active::after {
+  content: "";
+  position: absolute;
+  inset-block-end: -5px; /* Fica abaixo do texto */
+  inset-inline: 0;
+  block-size: 2px;
+  background: var(--green);
+}
+
+/* LADO DIREITO DA NAVBAR */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* HEADER */
+.page-header {
+  padding-block: 30px 20px;
+  text-align: center;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  margin-block-end: 6px;
+}
+
+.page-header p {
+  color: var(--txt-m);
+  font-size: 14px;
+}
+
+/* SEÇÕES */
+.secao {
+  padding-block: 30px;
+}
+
+.secao-titulo {
+  font-size: 15px;
+  font-weight: 500;
+  color: rgba(255,255,255,.8);
+  margin-block-end: 6px;
+}
+
+/* Linha separadora */
+hr {
+  border: none;
+  border-block-start: 1px solid var(--border);
+  margin-block-end: 20px;
+}
+
+/* BANNER */
+.banner {
+  inline-size: 100%;
+  block-size: 100px;
+  text-align: center;
+}
+
+.banner img {
+  inline-size: 58%;
+  block-size: 100%;
+  object-fit: cover; /* Ajusta imagem sem distorcer */
+  object-position: center;
+}
+
+/* FOOTER */
+footer {
+  background: var(--bg-dark);
+  padding-block: 20px;
+  border-block-start: 1px solid rgba(255,255,255,.06);
+  margin-block-start: 20px;
+}
+
+/* Conteúdo interno */
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Quebra linha em telas pequenas */
+  gap: 12px;
+}
+
+/* Links */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+/* Redes sociais */
+.footer-socials {
+  display: flex;
+  gap: 14px;
+}
+
+/* Estilo dos links */
+.footer-links a,
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--txt-m);
+  font-size: 13px;
+}
+
+.footer-socials i {
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+/* Hover */
+.footer-links a:hover {
+  color: var(--green);
+}
+
+.footer-socials a:hover i {
+  transform: scale(1.2);
+  color: var(--green);
+}
+
+/* Copyright */
+.footer-copy {
+  margin-block-start: 10px;
+}
+
+.footer-copy small {
+  font-size: 12px;
+  color: var(--txt-f);
+}
+
+/* MENU HAMBURGER (oculto em desktop) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform .3s, opacity .3s;
+}
+
+.hamburger {
+  position: relative;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.hamburger::before {
+  top: -7px;
+}
+
+.hamburger::after {
+  top: 7px;
+}
+
+/* Animação X quando aberto */
+.menu-toggle[aria-expanded="true"] .hamburger {
+  background: transparent;
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .hamburger::after {
+  top: 0;
+  transform: rotate(-45deg);
+}

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Telesine — Catálogo completo de filmes.">
+  <title>Telesine — Catálogo</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/modals.css">
+  <link rel="icon" type="image/png" href="favicon/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Coiny&family=Poppins:wght@400;500;700&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <nav class="navbar" aria-label="Navegação principal">
+    <div class="wrapper navbar-inner">
+      <a class="logo" href="index.html" aria-label="Telesine — página inicial">
+        <span class="icon" style="--c:#dd901d">T</span><span class="icon" style="--c:#09ca23">E</span><span class="icon" style="--c:#4aa6f1">L</span><span class="icon" style="--c:#8c0ee0">E</span><span class="icon" style="--c:#ec4d4d">S</span>ine
+      </a>
+      <ul class="menu" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="catalogo.html" class="active" aria-current="page">Catálogo</a></li>
+        <li><a href="index.html#sec-parceiros">Parceiros</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="buttonlog">
+          <button class="buttonmain" type="button">+ LOG</button>
+          <button class="buttonarrow" type="button" aria-label="Mais opções">▾</button>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="wrapper">
+      <h1>Catálogo de Filmes</h1>
+      <p>Todos os filmes disponíveis no Telesine.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="secao">
+      <div class="wrapper">
+        <div class="cat-topo">
+          <h2 class="secao-titulo">Todos os filmes</h2>
+          <div class="cat-filtros">
+            <select class="cat-genero" id="catGenero" aria-label="Filtrar por gênero">
+              <option value="">Todos os gêneros</option>
+            </select>
+            <input type="search" class="cat-busca" id="catBusca" placeholder="Buscar no catálogo..." aria-label="Buscar no catálogo">
+          </div>
+        </div>
+        <hr>
+        <ul class="grid" id="catalogoGrid" role="list"></ul>
+        <p class="busca-vazia hidden" id="catVazia">Nenhum filme encontrado.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="rodape">
+    <div class="wrapper footer-inner">
+      <nav class="footer-links" aria-label="Links do rodapé">
+        <a href="#">Sobre</a><a href="#">Pro</a><a href="#">Notícias</a><a href="#">Aplicativos</a>
+        <a href="#">Ano de Revisão</a><a href="#">Presentes</a><a href="#">Ajuda</a>
+        <a href="#">Termos</a><a href="#">API</a><a href="#">Contato</a>
+      </nav>
+      <nav class="footer-socials" aria-label="Redes sociais">
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#"><i class="fa-brands fa-youtube"></i></a>
+      </nav>
+    </div>
+    <div class="wrapper footer-copy">
+      <small>© Telesine. Feito com ❤ no Brasil.</small>
+    </div>
+  </footer>
+
+  <!-- MODAL DE LOGIN/CADASTRO -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="modal-close" id="modalClose" aria-label="Fechar">&times;</button>
+      <div class="modal-tab" id="tabLogin">
+        <h2 class="modal-title">Entrar</h2>
+        <form id="formLogin" novalidate>
+          <div class="input-group">
+            <label for="loginEmail">Email</label>
+            <input type="email" id="loginEmail" placeholder="seu@email.com" required>
+          </div>
+          <div class="input-group">
+            <label for="loginSenha">Senha</label>
+            <input type="password" id="loginSenha" placeholder="Sua senha" required>
+          </div>
+          <p class="form-error" id="loginError"></p>
+          <button type="submit" class="btn-submit">Entrar</button>
+        </form>
+        <p class="modal-switch">Não tem conta? <a href="#" id="goToRegister">Cadastre-se</a></p>
+      </div>
+      <div class="modal-tab hidden" id="tabRegister">
+        <h2 class="modal-title">Criar Conta</h2>
+        <form id="formRegister" novalidate>
+          <div class="input-group">
+            <label for="regNome">Nome</label>
+            <input type="text" id="regNome" placeholder="Seu nome" required>
+          </div>
+          <div class="input-group">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" placeholder="seu@email.com" required>
+          </div>
+          <div class="input-group">
+            <label for="regSenha">Senha</label>
+            <input type="password" id="regSenha" placeholder="Mínimo 6 caracteres" required>
+          </div>
+          <div class="input-group">
+            <label for="regConfirm">Confirmar Senha</label>
+            <input type="password" id="regConfirm" placeholder="Repita a senha" required>
+          </div>
+          <p class="form-error" id="registerError"></p>
+          <button type="submit" class="btn-submit">Cadastrar</button>
+        </form>
+        <p class="modal-switch">Já tem conta? <a href="#" id="goToLogin">Entrar</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE DETALHES DO FILME -->
+  <div class="modal-overlay" id="detailOverlay">
+    <div class="modal modal-detail">
+      <button class="modal-close" id="detailClose" aria-label="Fechar">&times;</button>
+      <div class="detail-content">
+        <div class="detail-poster" id="detailPoster"></div>
+        <div class="detail-info">
+          <h2 class="detail-title" id="detailTitle"></h2>
+          <div class="detail-meta" id="detailMeta"></div>
+          <p class="detail-sinopse" id="detailSinopse"></p>
+          <button class="btn-submit detail-fav" id="detailFav" type="button">
+            <i class="fa-regular fa-eye"></i> <span>Marcar como assistido</span>
+          </button>
+        </div>
+      </div>
+
+      <section class="avaliacoes">
+        <div class="avaliacoes-head">
+          <h3 class="avaliacoes-titulo">Avaliações</h3>
+          <div class="media-nota" id="mediaNota"></div>
+        </div>
+        <form class="aval-form" id="avalForm">
+          <p class="aval-label">Sua nota:</p>
+          <div class="estrelas" id="estrelas" role="radiogroup" aria-label="Dar nota">
+            <i class="fa-regular fa-star" data-valor="1" role="radio" aria-label="1 estrela"></i>
+            <i class="fa-regular fa-star" data-valor="2" role="radio" aria-label="2 estrelas"></i>
+            <i class="fa-regular fa-star" data-valor="3" role="radio" aria-label="3 estrelas"></i>
+            <i class="fa-regular fa-star" data-valor="4" role="radio" aria-label="4 estrelas"></i>
+            <i class="fa-regular fa-star" data-valor="5" role="radio" aria-label="5 estrelas"></i>
+          </div>
+          <textarea id="avalTexto" class="aval-texto" placeholder="Escreva um comentário (opcional)..." rows="2"></textarea>
+          <p class="form-error" id="avalError"></p>
+          <button type="submit" class="btn-submit aval-enviar">Publicar avaliação</button>
+        </form>
+        <p class="aval-login-aviso hidden" id="avalLoginAviso">
+          <a href="#" id="avalLoginLink">Entre na sua conta</a> para avaliar e comentar.
+        </p>
+        <ul class="comentarios" id="comentarios" role="list"></ul>
+      </section>
+    </div>
+  </div>
+
+  <!-- MODAL DE PERFIL -->
+  <div class="modal-overlay" id="perfilOverlay">
+    <div class="modal modal-perfil">
+      <button class="modal-close" id="perfilClose" aria-label="Fechar">&times;</button>
+      <header class="perfil-topo">
+        <div class="perfil-avatar" id="perfilAvatar">
+          <span class="perfil-avatar-inicial" id="perfilAvatarInicial">U</span>
+        </div>
+        <div class="perfil-id">
+          <div class="perfil-nome-linha">
+            <h2 class="perfil-nome" id="perfilNome"></h2>
+            <button class="perfil-edit-btn" id="perfilEditBtn" type="button">Editar perfil</button>
+          </div>
+          <p class="perfil-bio" id="perfilBio"></p>
+          <p class="perfil-local" id="perfilLocal"></p>
+        </div>
+        <div class="perfil-stats">
+          <div class="perfil-stat"><strong id="statFavs">0</strong><span>Assistidos</span></div>
+          <div class="perfil-stat"><strong id="statReviews">0</strong><span>Avaliações</span></div>
+          <div class="perfil-stat"><strong id="statMedia">—</strong><span>Nota média</span></div>
+        </div>
+      </header>
+
+      <form class="perfil-edit-form hidden" id="perfilEditForm">
+        <div class="input-group">
+          <label>Foto de perfil</label>
+          <div class="foto-upload">
+            <div class="foto-preview" id="fotoPreview"><span id="fotoPreviewInicial">U</span></div>
+            <div class="foto-upload-acoes">
+              <label for="editFoto" class="foto-btn">Escolher foto</label>
+              <input type="file" id="editFoto" accept="image/*" hidden>
+              <button type="button" class="foto-remover" id="fotoRemover">Remover foto</button>
+            </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="editBio">Bio</label>
+          <textarea id="editBio" class="aval-texto" rows="2" placeholder="Conte algo sobre você..."></textarea>
+        </div>
+        <div class="input-group">
+          <label for="editLocal">Localização</label>
+          <input type="text" id="editLocal" placeholder="Ex: Belém, Pará">
+        </div>
+        <div class="input-group">
+          <label>4 favoritos de todos os tempos</label>
+          <div class="top-fav-selects">
+            <select class="top-fav-select" id="topFav0" aria-label="Favorito 1"></select>
+            <select class="top-fav-select" id="topFav1" aria-label="Favorito 2"></select>
+            <select class="top-fav-select" id="topFav2" aria-label="Favorito 3"></select>
+            <select class="top-fav-select" id="topFav3" aria-label="Favorito 4"></select>
+          </div>
+        </div>
+        <div class="perfil-edit-acoes">
+          <button type="submit" class="btn-submit">Salvar</button>
+          <button type="button" class="btn-cancelar" id="editCancelar">Cancelar</button>
+        </div>
+      </form>
+
+      <section class="perfil-secao">
+        <h3 class="perfil-secao-titulo">Favoritos de Todos os Tempos</h3>
+        <hr>
+        <ul class="grid perfil-grid perfil-top-grid" id="perfilTopFavs" role="list"></ul>
+        <p class="perfil-vazio hidden" id="perfilTopFavsVazio">Você ainda não escolheu seus 4 favoritos. Use "Editar perfil".</p>
+      </section>
+
+      <section class="perfil-secao">
+        <h3 class="perfil-secao-titulo">Últimos Filmes Assistidos</h3>
+        <hr>
+        <ul class="grid perfil-grid" id="perfilFavs" role="list"></ul>
+        <p class="perfil-vazio hidden" id="perfilFavsVazio">Você ainda não marcou nenhum filme como assistido.</p>
+      </section>
+
+      <section class="perfil-secao">
+        <h3 class="perfil-secao-titulo">Minhas Avaliações</h3>
+        <hr>
+        <ul class="comentarios" id="perfilReviews" role="list"></ul>
+        <p class="perfil-vazio hidden" id="perfilReviewsVazio">Você ainda não avaliou nenhum filme.</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/site.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>
