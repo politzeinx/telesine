@@ -2,6 +2,8 @@
 
 Catálogo de filmes em formato de site, com sistema de login, perfil de usuário, avaliações e marcação de filmes assistidos. Projeto front-end feito com **HTML, CSS e JavaScript puro** (sem frameworks), usando o `localStorage` do navegador para guardar os dados.
 
+🔗 **Site no ar:** [politzeinx.github.io/telesine](https://politzeinx.github.io/telesine/)
+
 ## ✨ Funcionalidades
 
 - **Login e cadastro** — criar conta, entrar e manter a sessão (continua logado ao recarregar).
@@ -20,10 +22,10 @@ Catálogo de filmes em formato de site, com sistema de login, perfil de usuário
 ## 📁 Estrutura do projeto
 
 ```
-luis site/
-├── pages/
-│   ├── index.html        # Página inicial (home)
-│   └── catalogo.html     # Catálogo completo de filmes
+telesine/
+├── index.html            # Página inicial (home)
+├── catalogo.html         # Catálogo completo de filmes
+├── README.md
 ├── css/
 │   ├── base.css          # Variáveis, reset e estilos globais
 │   ├── layout.css        # Navbar, header, seções, footer, menu mobile
@@ -41,28 +43,25 @@ luis site/
 │   ├── site.js           # Miolo reutilizável (catálogo): sessão, detalhes, avaliações
 │   └── catalogo.js       # Renderização e filtros da página de catálogo
 ├── img/                  # Imagens (pôsteres, banners, artigos)
-└── favicon/              # Ícone do site e documentos
+└── favicon/              # Ícone do site
 ```
 
 ## 🚀 Como executar
 
-Por ser um site estático, basta abrir o arquivo no navegador:
+Por ser um site estático, basta abrir o arquivo `index.html` no navegador — não precisa de servidor nem instalação. Recomendado abrir no Google Chrome ou Firefox.
 
-```
-pages/index.html
-```
-
-Não precisa de servidor nem instalação. Recomendado abrir no Google Chrome ou Firefox.
+Ou acesse a versão publicada: [politzeinx.github.io/telesine](https://politzeinx.github.io/telesine/)
 
 ## 🖼️ Sobre os pôsteres
 
-Os filmes 1 a 10 têm pôsteres reais na pasta `img/`. Os demais (11 a 30) procuram os arquivos `img/filme11.jpg` a `img/filme30.jpg` — se o arquivo não existir, o card exibe automaticamente um **pôster-placeholder** com gradiente e o nome do filme. Para usar um pôster real, basta colocar a imagem na pasta `img/` com o nome correspondente.
+Os filmes 1 a 10 têm pôsteres reais na pasta `img/`. Os demais (11 a 30) usam os arquivos `img/filme11.jpg` a `img/filme30.jpg` — se algum arquivo não existir, o card exibe automaticamente um **pôster-placeholder** com gradiente e o nome do filme.
 
 ## 💾 Armazenamento dos dados
 
 Todos os dados (usuários, sessão, assistidos, avaliações e perfil) são salvos no **`localStorage`** do navegador. Isso significa que:
 
 - Os dados ficam apenas no navegador/máquina onde foram criados.
+- Cada visitante tem os próprios dados (não há servidor compartilhado).
 - Limpar os dados do navegador apaga as contas e o histórico.
 
 ## 🛠️ Tecnologias
